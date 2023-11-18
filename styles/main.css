@@ -68,5 +68,49 @@ a:visited {
 }
 
 a:active {
-    color: #087096;; 
+    color: #087096;
+}
+/* Media query */
+@media screen and (max-width: 600px) {
+    body {
+        background: linear-gradient(to bottom, #c0e9e8, #b6dff0);
+        color: #000;
+        font-family: Georgia, serif;
+        margin: 0;
+        padding: 0;
+    }
+    
+    header {
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+        background: #0c8fbf;
+        margin: 0;
+        font-family: serif;
+        padding: 2rem; 
+    }
+    
+    #map {
+        height: 250px;
+        width: 250px;
+        border: 3px solid #0c8fbf;
+        margin: 2rem auto; /* Center horizontally and add space at the top */
+    }
+    
+    article {
+        background: #fff;
+        font-size: 1.2rem;
+        line-height: 2rem;
+        max-width: 800px; 
+        margin: 2rem auto;
+        margin-left: 2rem; 
+        margin-right: 2rem; 
+        padding: 1rem; 
+        border-color: #0c8fbf;
+        border-style: solid;
+    }
+    
+    footer {
+        margin: 2rem auto;
+        width: 85%;
+    }
 }
