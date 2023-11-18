@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> Leaflet Practice </title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css" integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14=" crossorigin="">
+    <link rel="stylesheet" href="styles/first_map.css">
+</head>
+
+<body>
+    <h1>Leaflet Example: My Study Abroad in Florence, Italy</h1>
+   <div id="container"> 
+        <div id="map">
+        
+        </div>
+    </div>
+
+    <p>The above map shows a few different places I visited during my study in Florence, Italy last summer.</p>
+
+
+    <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js" integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg=" crossorigin=""></script>
+
+    <script>
+        let map = L.map('map').setView([43.769698, 11.251778], 13.43);
+
+        L.tileLayer('https://api.mapbox.com/styles/v1/claremeyers/clp2yma1p00zc01ntf47f0lh5/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiY2xhcmVtZXllcnMiLCJhIjoiY2xwMnlnOXA2MHYxYTJrbWo5djVjOTI5MiJ9.D7LUYPWMVw5FBBE86MMGOQ', {
+        maxZoom: 18,
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery &copy; <a href="https://www.mapbox.com/">Mapbox</a>'
+        }).addTo(map);
+
+        let marker1 = L.marker([43.768532, 11.255610]).addTo(map);
+        marker1.bindPopup("<b>Uffizi Gallery</b><br>A world-renowned art museum that features an extensive collection of masterpieces from artists such as Leonardo da Vinci, Michelangelo, and Botticelli.").openPopup();
+
+        let marker2 = L.marker([43.755619, 11.250380]).addTo(map);
+        marker2.bindPopup("<b>Piazzale Michelangelo</b><br>Piazzale Michelangelo, situated on a hill overlooking Florence, Italy, offers panoramic views of the city's iconic skyline, including the Florence Cathedral, Ponte Vecchio, and the Arno River.")
+
+        let marker3 = L.marker([43.768040, 11.253190]).addTo(map);
+        marker3.bindPopup("<b>Ponte Vecchio</b><br>Ponte Vecchio, spanning the Arno River in Florence, Italy, is a historic medieval bridge known for its distinctive shops and galleries suspended along its edges.")
+
+        let marker4 = L.marker([43.773430, 11.256620]).addTo(map);
+        marker4.bindPopup("<b>Cathedral of Santa Maria del Fiore</b><br>The Cathedral of Santa Maria del Fiore, commonly called the Doumo, is a magnificent Gothic masterpiece located in the heart of Florence, Italy, renowned for its iconic dome designed by Filippo Brunelleschi.")
+
+    </script>
+</body>
+</html>
