@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> Tampa Bay Area </title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css" integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14=" crossorigin="">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+    <header>
+        <h1>Explore the Tampa Bay Area</h1>
+    </header>
+
+    <article>
+        <p>Welcome to the vibrant, sun-soaked Tampa Bay, Florida, where the breathtaking beaches are rivaled only by the area's cultural, culinary, and artistic charm.</p>
+
+        <p>Surrounding the Gulf of Mexico, the Tampa Bay area includes the cities of Tampa, St. Petersburg, and Clearwater, each with its own unique personality. Whether you're in town for family-friendly fun, a Rays game weekend, or a classic beach getaway, a visit to Bay promises to be an unforgettable experience.</p>
+
+        <p>Explore 20 of the Bay's top attractions and landmarks with this interactive map. Click on the pins for a brief description of each attraction!</p>
+
+        <div id="container"> 
+            <div id="map">
+            <!-- map loads here -->
+            </div>
+        </div>
+
+    </article>
+
+    <footer>
+        <p>This <a href="https://github.com/ClareMeyers/Tampa-Bay">page</a> was made for an assignment for the University of Florida course <b>Introduction to Web Apps</b>. Header image provided by <a href="https://unsplash.com/@beingmeak05?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">AK</a> on <a href="https://unsplash.com/photos/a-man-sitting-on-a-bench-next-to-a-body-of-water-zQJiPEhok58?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash.</a></p>
+     </footer>
+
+ <!-- JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js" integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg=" crossorigin=""></script>
+
+    <script src="scripts/places.js">
+    </script>
+
+    <script>
+        let map = L.map('map').setView([27.849252, -82.675278], 9.16);
+
+        L.tileLayer('https://api.mapbox.com/styles/v1/claremeyers/clp2yma1p00zc01ntf47f0lh5/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiY2xhcmVtZXllcnMiLCJhIjoiY2xwMnlnOXA2MHYxYTJrbWo5djVjOTI5MiJ9.D7LUYPWMVw5FBBE86MMGOQ', {
+       
+        maxZoom: 15,
+
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery &copy; <a href="https://www.mapbox.com/">Mapbox</a>'
+
+        }).addTo(map);
+
+        for (let i= 0; i < places.length; i++) {
+            L.marker([places[i].latitude, places[i].longitude])
+            .bindPopup( '<h3>' + places[i].placeName + '</h3>' + '<p>' + places[i].description + '</p>')
+            .addTo( map );
+        }
+    </script>
+
+</body>
+
+</html>
